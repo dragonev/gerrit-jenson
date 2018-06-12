@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.jenkins-ci.plugins</groupId>
+    <artifactId>plugin</artifactId>
+    <relativePath/>
+    <version>1.580.1</version>
+  </parent>
+  <groupId>com.dragon</groupId>
+  <packaging>hpi</packaging>
+
+
+  <name>Gerrit Jenson Plugin</name>
+
+  <!-- The default licence for Jenkins OSS Plugins is MIT. Substitute for the applicable one if needed. -->
+
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://opensource.org/licenses/MIT</url>
+    </license>
+  </licenses>
+
+  <!-- If you want this to appear on the wiki page:
+  <developers>
+    <developer>
+      <id>bhacker</id>
+      <name>Bob Q. Hacker</name>
+      <email>bhacker@nowhere.net</email>
+    </developer>
+  </developers>
+  -->
+  <!-- Assuming you want to host on @jenkinsci:
+  <scm>
+    <connection>scm:git:git://github.com/jenkinsci/${project.artifactId}-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:jenkinsci/${project.artifactId}-plugin.git</developerConnection>
+    <url>http://github.com/jenkinsci/${project.artifactId}-plugin</url>
+  </scm>
+   -->
+  <repositories>
+    <repository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+    </pluginRepository>
+  </pluginRepositories>
+  <!-- If you want to depend on other plugins:
+  <dependencies>
+    <dependency>
+      <groupId>org.jenkins-ci.plugins</groupId>
+      <artifactId>credentials</artifactId>
+      <version>1.9.4</version>
+    </dependency>
+  </dependencies>
+  -->
+
+  <version>1.0.0</version>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.sonyericsson.hudson.plugins.gerrit</groupId>
+  		<artifactId>gerrit-trigger</artifactId>
+  		<version>2.16.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.google.code.gson</groupId>
+  		<artifactId>gson</artifactId>
+  		<version>2.2.2</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.google.guava</groupId>
+  		<artifactId>guava</artifactId>
+  		<version>18.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>com.urswolfer.gerrit.client.rest</groupId>
+  		<artifactId>gerrit-rest-java-client</artifactId>
+  		<version>0.8.5</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  		<version>4.10</version>
+  		<scope>test</scope>
+  	</dependency>
+  </dependencies>
+  <description>This Gerrit-Jenson plugin is used to post the review of Issues of static code check to the Gerrit server, but how to generate the issues report is not the task of current plugin. If you want to use this plugin, you should generate the issue report by the third tool. The format of issue report must contain 5 fields, they are file, line,  id, severity and msg. The file is the source file. The line is the number of issue, The id is the error key. The severity is the error level. The msg is the error message. The owner of project can customize the error level, You can set in the SonarQube Settings. Default condition uses the error level of the third tool.</description>
+  <artifactId>gerrit-jenson</artifactId>
+</project>
